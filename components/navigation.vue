@@ -25,6 +25,7 @@ ul {
   justify-content: space-between;
   padding: 0;
   margin: 0;
+  align-items: center;
   p {
     font-size: 2rem;
     font-weight: 600;
@@ -38,6 +39,7 @@ ul {
   nav {
     display: flex;
     gap: 10px;
+    align-items: center;
   }
   a {
     text-decoration: none;
