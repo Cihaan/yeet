@@ -12,19 +12,15 @@
         <button @click="onYeetClick">Yeet</button>
       </div>
     </header>
-    <section v-if="state.recipes">
-      <div v-for="recipe in state.recipes" :key="recipe.id">
-        <h2>{{ recipe.name }}</h2>
-        <img :src="recipe.thumbnail_url" />
-        <p>{{ recipe.description }}</p>
-        <a :href="recipe.video_url">Video link</a>
-      </div>
+    <section v-if="state.recipes" class="recipe">
+      <recipe-card :recipe="randomRecipe"></recipe-card>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
 // const state = reactive({ recipes: null });
+import recipe_card from "../components/recipe_card.vue";
 const state = reactive({recipes: [
     {
       "nutrition_visibility": "auto",
@@ -12994,6 +12990,8 @@ const state = reactive({recipes: [
   ]
 })
 
+const randomRecipe = state.recipes[Math.floor(Math.random() * state.recipes.length)];
+
 const onYeetClick = () => {
   // fetch("/api/recipes")
   //   .then((res) => res.json())
@@ -13010,7 +13008,7 @@ div.home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   height: 100vh;
   width: 100vw;
   font-family: "Roboto", sans-serif;
@@ -13021,6 +13019,7 @@ div.home {
   h1 {
     font-size: 2.5rem;
     font-weight: 700;
+    margin-bottom: 15px;
   }
   p {
     margin: 0px;
