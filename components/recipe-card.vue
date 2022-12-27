@@ -6,6 +6,7 @@
     <div class="recipe__info">
       <h2 class="recipe__title">{{ recipe.name }}</h2>
       <p class="recipe__description">{{ recipe.description }}</p>
+      <p class="recipe__clock">⏰ 30 minutes</p>
     </div>
   </div>
 </template>
@@ -51,7 +52,6 @@ const { recipe } = props;
   &__info {
     width: 100%;
     height: 50%;
-    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,6 +66,7 @@ const { recipe } = props;
 
     &__description {
       font-size: 1rem;
+      align-self: center;
       font-weight: 400;
       margin-bottom: 1rem;
     }

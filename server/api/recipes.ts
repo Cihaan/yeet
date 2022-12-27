@@ -8,10 +8,7 @@ export default defineEventHandler((event) => {
     },
   };
 
-  return fetch(
-    config.public.apiBase + "/list?from=0&size=20&tags=under_30_minutes",
-    options
-  )
+  return fetch(config.public.apiBase + "/list?tags=under_30_minutes", options)
     .then((response) => response.json())
     .then((response) => {
       return response;
